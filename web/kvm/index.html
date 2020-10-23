@@ -137,25 +137,8 @@
             </div>
           </div>
           <hr>
-          <div class="text">Stream size: <span id="stream-size-value">100%</span>
-            <div class="stream-param-box">
-              <input class="slider" type="range" id="stream-size-slider">
-            </div>
-          </div>
-          <hr>
-          <div class="text">
-            <table class="one-line-switch">
-              <td>Auto-resize stream:</td>
-              <td align="right">
-                <div class="switch-box">
-                  <input checked type="checkbox" id="stream-auto-resize-checkbox">
-                  <label for="stream-auto-resize-checkbox"><span class="switch-inner"></span><span class="switch"></span></label>
-                </div>
-              </td>
-            </table>
-          </div>
-          <hr>
           <div class="buttons">
+            <button data-force-hide-menu id="maximize-stream-window">&bull; Maximize stream window</button>
             <button disabled data-force-hide-menu id="stream-reset-button">&bull; Reset stream</button>
             <button disabled data-force-hide-menu id="hid-reset-button">&bull; Reset keyboard &amp; mouse</button>
             <button class="feature-disabled" disabled data-force-hide-menu id="msd-reset-button">&bull; Reset drive</button>
@@ -420,9 +403,20 @@
           <div class="window-header" id="stream-window-header">
             <div class="window-grab">Stream</div>
             <button class="window-button-close">&times;</button>
+            <button class="window-button-maximize">&#9744;</button>
+            <button class="window-button-full-screen">&#10530;</button>
           </div>
           <div id="stream-info"></div>
-          <div class="stream-box-inactive" id="stream-box"><img class="stream-image-inactive" id="stream-image" src="/share/png/blank-stream.png"></div>
+
+          <div class="stream-box-inactive" id="stream-box">
+            <div class="alert-box" id="keyboard-lock-alert">
+              <p>Failed to acquire keyboard lock. Shortcuts like Alt+Tab, Ctrl+W, Ctrl+N might not be captured.</p>
+              For best keyboard handling use a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Keyboard_API#Browser_compatibility">browser with keyboard lock support api</a>.
+              In Chrome use https and enable system-keyboard-lock by putting at URL chrome://flags/#system-keyboard-lock.
+              More details on keyboard lock API are <a href="https://wicg.github.io/keyboard-lock/" target="_blank">here.</a>
+            </div>
+            <img class="stream-image-inactive" id="stream-image" src="/share/png/blank-stream.png">
+          </div>
           <div class="keypad" id="stream-mouse-buttons" align="center">
             <div class="keypad-block">
               <div class="keypad-row">
