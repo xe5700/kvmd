@@ -21,3 +21,4 @@
 *.pyc
 *.swp
 /venv/
+.idea
